@@ -4,24 +4,28 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: neo_route
-        uri: http://www.ityouknow.com
-        predicates:
-          - Path=/spring-cloud
-#      - id: time_route
-#        uri: http://ityouknow.com
-#        predicates:
-#        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
-#        - Before=2018-01-20T06:06:06+08:00[Asia/Shanghai]
-#        - Between=2018-01-20T06:06:06+08:00[Asia/Shanghai], 2019-01-20T06:06:06+08:00[Asia/Shanghai]
-#      - id: cookie_route
-#        uri: http://ityouknow.com
-#        predicates:
-#        - Cookie=ityouknow, kee.e
-#      - id: header_route
-#        uri: http://ityouknow.com
-#        predicates:
-#        - Header=X-Request-Id, \d+
+        # http://localhost:8080/spring-cloud -> http://www.ityouknow.com/spring-cloud
+        - id: neo_route
+          # 相当于换了域名
+          uri: http://www.ityouknow.com
+          predicates:
+            - Path=/spring-cloud
+        #      - id: time_route
+        #        uri: http://ityouknow.com
+        #        predicates:
+        #        - After=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+        #        - Before=2018-01-20T06:06:06+08:00[Asia/Shanghai]
+        #        - Between=2018-01-20T06:06:06+08:00[Asia/Shanghai], 2019-01-20T06:06:06+08:00[Asia/Shanghai]
+        #      - id: cookie_route
+        #        uri: http://ityouknow.com
+        #        predicates:
+        #        - Cookie=ityouknow, kee.e
+        #
+        # curl http://localhost:8080 --cookie "ityouknow=kee.e"
+        - id: header_route
+          uri: http://ityouknow.com
+          predicates:
+            - Header=X-Request-Id, \d+
 #      - id: host_route
 #        uri: http://ityouknow.com
 #        predicates:
