@@ -10,7 +10,8 @@ spring:
           enabled: true
       routes:
         - id: add_request_parameter_route
-          uri: http://localhost:9000
+          # lb 负载均衡
+          uri: lb://spring-cloud-producer
           filters:
             - AddRequestParameter=foo, bar
           predicates:
