@@ -16,6 +16,7 @@ import java.util.UUID;
  * https://www.cnblogs.com/cy-e/p/15473518.html
  * https://mp.weixin.qq.com/s/QMYcgGzzF_qdb5F1LlI16A
  * https://blog.51cto.com/u_15753094/5830446
+ * https://blog.csdn.net/qq_51456123/article/details/125735344
  */
 @Slf4j
 public class CostomerGatewayFilter implements GatewayFilter, Ordered {
