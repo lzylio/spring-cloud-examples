@@ -9,6 +9,7 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -50,15 +51,17 @@ public class CostomerGatewayFilter implements GatewayFilter, Ordered {
         }).build();
         // 重置请求
         ServerWebExchange serverWebExchange = exchange.mutate().request(serverHttpRequest).build();
+
+        // 开始时间埋点
+        Map<String, Object> attributes = exchange.getAttributes();
+        attributes.put(TIME, System.currentTimeMillis());
         return chain.filter(serverWebExchange)
                 // .then 后置操作
                 .then(
                         Mono.fromRunnable(() -> {
                             log.info("CostomerGatewayFilter 后置操作===================");
                             Long start = exchange.getAttribute(TIME);
-                            if (start != null) {
-                                log.info("exchange request uri:" + exchange.getRequest().getURI() + ", Time:" + (System.currentTimeMillis() - start) + "ms");
-                            }
+                            log.info("exchange request uri:" + exchange.getRequest().getURI() + ", Time:" + (System.currentTimeMillis() - start) + "ms");
                         })
                 );
     }

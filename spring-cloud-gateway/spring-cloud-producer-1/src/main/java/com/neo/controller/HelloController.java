@@ -1,5 +1,6 @@
 package com.neo.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
+@Slf4j
 public class HelloController {
 
     private static final String TIME = "time";
@@ -27,7 +29,8 @@ public class HelloController {
     }
 
     @RequestMapping("/customer")
-    public String customer() {
+    public String customer(String param) {
+        log.info("param = " + param);
         String userId = request.getHeader(USER_ID);
         String appId = request.getHeader(APP_ID);
         System.out.println(userId);

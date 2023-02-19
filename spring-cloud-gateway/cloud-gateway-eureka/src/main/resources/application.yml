@@ -14,11 +14,17 @@ spring:
           # lb 负载均衡
           uri: lb://spring-cloud-producer
           filters:
-#            - AddRequestParameter=foo, bar
+          ## 可以配置多个过滤器
+          # 请求添加上 param=lio 的参数和值。
+            - AddRequestParameter=param, lio
           # 自定义过滤器，带前置和后置功能
             - Customer
           predicates:
-            - Method=GET
+          ## 可以配置多个匹配规则
+            # 根据请求方法匹配
+#            - Method=GET
+            # 根据路径匹配
+            - Path=/customer
 eureka:
   client:
     service-url:
