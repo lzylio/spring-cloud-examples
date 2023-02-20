@@ -49,7 +49,7 @@ public class CostomerGatewayFilter implements GatewayFilter, Ordered {
             httpHeaders.add(USER_ID, UUID.randomUUID().toString());
             httpHeaders.add(APP_ID, "cloud");
         }).build();
-        // 重置请求
+        // 重置请求 一共需要build()两次 上面一次 这里一次
         ServerWebExchange serverWebExchange = exchange.mutate().request(serverHttpRequest).build();
 
         // 开始时间埋点
