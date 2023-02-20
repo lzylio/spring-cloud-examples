@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * 继承的方法实现过滤器
  * 如果命名为 MyGatewayFilterFactory 会找不到过滤器，过滤器名字不能太短。。。
+ *
+ * 参考博客 https://www.cnblogs.com/westlin/p/10909799.html
  */
 @Slf4j
 @Component
