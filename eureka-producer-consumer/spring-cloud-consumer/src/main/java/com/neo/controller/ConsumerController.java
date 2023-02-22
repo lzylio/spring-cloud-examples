@@ -11,7 +11,8 @@ public class ConsumerController {
 
     @Autowired
     HelloRemote HelloRemote;
-	
+
+    // http://localhost:9001/hello/neo
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {
         return HelloRemote.hello(name);

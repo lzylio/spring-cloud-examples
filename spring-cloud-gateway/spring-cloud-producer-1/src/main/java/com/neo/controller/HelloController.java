@@ -28,6 +28,7 @@ public class HelloController {
         return "hello " + foo + "!!";
     }
 
+    // http://localhost:8888/customer
     @RequestMapping("/customer")
     public String customer(String param) {
         log.info("param = " + param);

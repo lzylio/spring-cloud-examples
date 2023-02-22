@@ -1,10 +1,10 @@
-【本项目博客】
+【参考博客】
 http://www.ityouknow.com/springcloud/2019/01/19/spring-cloud-gateway-service.html
 
 【Spring Cloud Gateway 自定义Filter】
 https://www.cnblogs.com/cy-e/p/15473518.html
 
-【参考博客】
+【其他博客】
 https://www.cnblogs.com/cy-e/p/15473518.html
 彩蛋：
 https://mp.weixin.qq.com/s/QMYcgGzzF_qdb5F1LlI16A
@@ -14,3 +14,7 @@ https://blog.csdn.net/qq_51456123/article/details/125735344
 
 【gateway系列文章】
 https://blog.csdn.net/m_lonel/article/details/125907048
+
+【做了什么】
+● 需要启动 spring-cloud-eureka、cloud-gateway-eureka、spring-cloud-producer、spring-cloud-producer-1
+● cloud-gateway-eureka 实现了自定义过滤器 两种方式 实现+继承{CostomerGatewayFilter}和单继承{MyTestGatewayFilterFactory} 建议使用单继承方式
